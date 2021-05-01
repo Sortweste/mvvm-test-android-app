@@ -1,0 +1,21 @@
+package com.sort.pinto.data.converters
+
+import androidx.room.TypeConverter
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+
+/*Allow to store Entity Properties as List<String>*/
+object Converters {
+
+    @TypeConverter
+    @JvmStatic
+    fun fromList(list: List<String>) = Gson().toJson(list).toString()
+
+    @TypeConverter
+    @JvmStatic
+    fun toList(json: String): List<String> {
+        val listType = object : TypeToken<List<String>>() {}.type
+        return Gson().fromJson(json, listType)
+    }
+
+}
