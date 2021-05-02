@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PintoBussinessDemo</string>
+    <string name="need_an_account">¿Necesitas una cuenta?</string>
+    <string name="email_hint">Correo</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="sign_up">Regístrese</string>
+    <string name="login">Iniciar sesión</string>
+</resources>

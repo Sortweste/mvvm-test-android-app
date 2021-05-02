@@ -3,7 +3,9 @@ package com.sort.pinto.di
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.sort.pinto.constants.BASE_URL
+import com.sort.pinto.network.Authenticator
 import com.sort.pinto.network.RequestInterceptor
+import com.sort.pinto.network.services.AuthService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,6 +32,7 @@ object RetrofitModule {
         .writeTimeout(1, TimeUnit.MINUTES)
         .readTimeout(1, TimeUnit.MINUTES)
         .addInterceptor(RequestInterceptor())
+        .authenticator(Authenticator())
         .build()
 
     /*Provide Retrofit singleton instance for App*/
@@ -41,5 +44,9 @@ object RetrofitModule {
         .client(okHttpClient)
         .baseUrl(BASE_URL)
         .build()
+
+    @Singleton
+    @Provides
+    fun provideAuthService(retrofit: Retrofit): AuthService = retrofit.create(AuthService::class.java)
 
 }
