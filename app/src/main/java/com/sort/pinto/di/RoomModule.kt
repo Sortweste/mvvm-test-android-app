@@ -8,6 +8,7 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.sort.pinto.constants.DATABASE_NAME
 import com.sort.pinto.data.AppDatabase
+import com.sort.pinto.data.dao.CategoryDao
 import com.sort.pinto.workers.SeedDatabaseWorker
 import dagger.Module
 import dagger.Provides
@@ -36,5 +37,9 @@ object RoomModule {
             })
             .build()
     }
+
+    @Singleton
+    @Provides
+    fun provideInstitutionDao(appDatabase: AppDatabase): CategoryDao = appDatabase.categoryDao()
 
 }

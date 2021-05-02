@@ -6,6 +6,7 @@ import com.sort.pinto.constants.BASE_URL
 import com.sort.pinto.network.Authenticator
 import com.sort.pinto.network.RequestInterceptor
 import com.sort.pinto.network.services.AuthService
+import com.sort.pinto.storage.AuthManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,11 +28,11 @@ object RetrofitModule {
 
     @Singleton
     @Provides
-    fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
+    fun provideOkHttpClient(authManager: AuthManager): OkHttpClient = OkHttpClient.Builder()
         .connectTimeout(1, TimeUnit.MINUTES)
         .writeTimeout(1, TimeUnit.MINUTES)
         .readTimeout(1, TimeUnit.MINUTES)
-        .addInterceptor(RequestInterceptor())
+        .addInterceptor(RequestInterceptor(authManager))
         .authenticator(Authenticator())
         .build()
 
