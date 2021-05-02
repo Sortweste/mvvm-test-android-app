@@ -6,4 +6,10 @@
     <string name="password_hint">Contraseña</string>
     <string name="sign_up">Regístrese</string>
     <string name="login">Iniciar sesión</string>
+    <string name="products">Productos</string>
+    <string name="clients">Clientes</string>
+    <string name="sales">Ventas</string>
+    <string name="reserves">Reservas</string>
+    <string name="profile">Perfil</string>
+    <string name="category_placeholder">Nombre de la Categoría</string>
 </resources>

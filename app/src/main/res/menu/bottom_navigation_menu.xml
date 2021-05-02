@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/categoryFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_products"
+        android:title="@string/products"
+        />
+    <item
+        android:id="@+id/clientFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_clients"
+        android:title="@string/clients"
+        />
+    <item
+        android:id="@+id/salesFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_sales"
+        android:title="@string/sales"
+        />
+    <item
+        android:id="@+id/reserveFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_reserves"
+        android:title="@string/reserves"
+        />
+    <item
+        android:id="@+id/profileFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_profile"
+        android:title="@string/profile"
+        />
+
+</menu>

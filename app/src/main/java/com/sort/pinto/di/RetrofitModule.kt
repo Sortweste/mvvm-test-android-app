@@ -6,6 +6,7 @@ import com.sort.pinto.constants.BASE_URL
 import com.sort.pinto.network.Authenticator
 import com.sort.pinto.network.RequestInterceptor
 import com.sort.pinto.network.services.AuthService
+import com.sort.pinto.network.services.CategoryService
 import com.sort.pinto.storage.AuthManager
 import dagger.Module
 import dagger.Provides
@@ -49,5 +50,9 @@ object RetrofitModule {
     @Singleton
     @Provides
     fun provideAuthService(retrofit: Retrofit): AuthService = retrofit.create(AuthService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideCategoryService(retrofit: Retrofit): CategoryService = retrofit.create(CategoryService::class.java)
 
 }
