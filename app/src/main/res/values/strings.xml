@@ -13,4 +13,5 @@
     <string name="reserves">Reserves</string>
     <string name="profile">Profile</string>
     <string name="category_placeholder">Category Name</string>
+    <string name="add_category">Add Category</string>
 </resources>

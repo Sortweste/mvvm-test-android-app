@@ -12,4 +12,5 @@
     <string name="reserves">Reservas</string>
     <string name="profile">Perfil</string>
     <string name="category_placeholder">Nombre de la Categoría</string>
+    <string name="add_category">Agregar Categoría</string>
 </resources>

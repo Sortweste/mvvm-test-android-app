@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sort.pinto.R
 import com.sort.pinto.adapters.RecyclerViewAdapter
@@ -20,7 +21,7 @@ import com.sort.pinto.viewmodels.CategoryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CategoryFragment : Fragment(), RecyclerViewClickListener<Category> {
+class CategoryFragment : Fragment(), RecyclerViewClickListener<Category>, View.OnClickListener {
 
     private var _binding: FragmentCategoryBinding? = null
     private val binding get() = _binding!!
@@ -42,6 +43,7 @@ class CategoryFragment : Fragment(), RecyclerViewClickListener<Category> {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         initObservers()
+        binding.fab.setOnClickListener(this)
     }
 
     companion object {
@@ -63,7 +65,6 @@ class CategoryFragment : Fragment(), RecyclerViewClickListener<Category> {
                             adapter.setData(it.data)
                     }
                 }
-
             })
         }
     }
@@ -82,6 +83,13 @@ class CategoryFragment : Fragment(), RecyclerViewClickListener<Category> {
     }
 
     override fun onCardViewClick(view: View, obj: Category) {
+        val action = CategoryFragmentDirections.actionCategoryFragmentToCategoryListFragment(obj.id.toString())
+        view.findNavController().navigate(action)
+    }
 
+    override fun onClick(v: View?) {
+        when(v?.id){
+            binding.fab.id -> {}
+        }
     }
 }
