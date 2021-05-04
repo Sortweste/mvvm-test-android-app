@@ -28,7 +28,6 @@ fun <T, A> performGetOperation(databaseQuery: () -> Flow<T>, networkCall: suspen
         val responseStatus = networkCall.invoke()
         if (responseStatus.status == Resource.Status.SUCCESS) {
             saveCallResult(responseStatus.data!!)
-            // emit here ?
         } else if (responseStatus.status == Resource.Status.ERROR) {
             emit(Resource.error(responseStatus.message!!))
             emitSource(source)

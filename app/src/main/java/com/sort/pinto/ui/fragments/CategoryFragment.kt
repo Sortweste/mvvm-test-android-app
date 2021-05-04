@@ -14,6 +14,7 @@ import com.sort.pinto.adapters.RecyclerViewAdapter
 import com.sort.pinto.data.Category
 import com.sort.pinto.databinding.FragmentCategoryBinding
 import com.sort.pinto.interfaces.RecyclerViewClickListener
+import com.sort.pinto.utils.Resource
 import com.sort.pinto.utils.isTablet
 import com.sort.pinto.viewmodels.CategoryViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,8 +57,13 @@ class CategoryFragment : Fragment(), RecyclerViewClickListener<Category> {
     private fun initObservers(){
         lifecycleScope.launchWhenCreated {
             viewModel.categories.observe(viewLifecycleOwner, Observer{
-                if (it.isNotEmpty())
-                    adapter.setData(it)
+                when(it.status){
+                    Resource.Status.SUCCESS -> {
+                        if (it.data.isNullOrEmpty())
+                            adapter.setData(it.data)
+                    }
+                }
+
             })
         }
     }

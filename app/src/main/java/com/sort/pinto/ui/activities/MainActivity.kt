@@ -9,7 +9,9 @@ import androidx.navigation.NavDestination
 import androidx.navigation.ui.setupWithNavController
 import com.sort.pinto.R
 import com.sort.pinto.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
 
     private var _binding: ActivityMainBinding? = null

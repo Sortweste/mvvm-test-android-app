@@ -8,5 +8,8 @@ import androidx.room.PrimaryKey
 data class Category(
     @PrimaryKey val id: Long,
     val name: String,
-    @ColumnInfo(name = "image_url") val imageURL: String
+    @ColumnInfo(
+        name = "image_url",
+        defaultValue = "https://mocah.org/uploads/posts/343916-Mountain-Landscape-Scenery-Minimalist-Minimalism-Digital-Art.jpg"
+    ) val imageURL: String
 )

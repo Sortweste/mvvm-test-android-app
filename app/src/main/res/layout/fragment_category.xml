@@ -17,7 +17,7 @@
             android:id="@+id/recycler_view_article"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:data="@{categoryViewModel.categories}" />
+            app:data="@{categoryViewModel.categories.data}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

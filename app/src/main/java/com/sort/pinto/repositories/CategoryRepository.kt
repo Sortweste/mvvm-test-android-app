@@ -8,12 +8,14 @@ import javax.inject.Inject
 
 class CategoryRepository @Inject constructor(private val categoryRemoteDataSource: CategoryRemoteDataSource, private val categoryDao: CategoryDao){
 
-    val getLocalCategories = categoryDao.getAllCategories()
+    fun getCategories(pages: String = "1") = performGetOperation(
+            databaseQuery = { categoryDao.getAllCategories() },
+            networkCall = { categoryRemoteDataSource.getCategories(pages) },
+            saveCallResult = { categoryDao.insertMany(*it.items.toTypedArray()) } // Auto updates displayed info due to LiveData
+    )
 
-    fun getCategories(pages: String = "1") = performGetOperation { categoryRemoteDataSource.getCategories(pages) }
-
-    suspend fun insertCategories(categories: List<Category>){
-        categoryDao.insertMany(*categories.toTypedArray())
+    suspend fun insertCategory(category: Category){
+        categoryDao.insert(category)
     }
 
 }
