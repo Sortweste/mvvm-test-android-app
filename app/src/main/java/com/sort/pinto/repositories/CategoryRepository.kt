@@ -10,7 +10,7 @@ class CategoryRepository @Inject constructor(private val categoryRemoteDataSourc
 
     val getLocalCategories = categoryDao.getAllCategories()
 
-    fun getCategories() = performGetOperation{ categoryRemoteDataSource.getCategories() }
+    fun getCategories(pages: String = "1") = performGetOperation { categoryRemoteDataSource.getCategories(pages) }
 
     suspend fun insertCategories(categories: List<Category>){
         categoryDao.insertMany(*categories.toTypedArray())

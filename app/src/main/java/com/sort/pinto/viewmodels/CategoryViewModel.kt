@@ -15,4 +15,6 @@ class CategoryViewModel @Inject constructor(private val repository: CategoryRepo
     val categories: LiveData<List<Category>>
     get() = _getCategories
 
+    // TODO: Use init to Live data page value
+
 }

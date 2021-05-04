@@ -6,6 +6,6 @@ import javax.inject.Inject
 
 class CategoryRemoteDataSource @Inject constructor(private val categoryService: CategoryService): SafeApiRequest() {
 
-    suspend fun getCategories() = apiRequest { categoryService.getCategories() }
+    suspend fun getCategories(pages: String) = apiRequest { categoryService.getCategories(pages) }
 
 }
