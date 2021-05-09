@@ -5,3 +5,4 @@ const val BASE_URL = "https://cugo-api.herokuapp.com/api/v1/"
 const val SHARE_PREFERENCES_FILE = "DATA"
 const val ACCESS_TOKEN_KEY = "U932i-asd="
 const val REFRESH_TOKEN_KEY = "USdf90i-asd="
+const val REQUEST_CODE_PICK_IMAGE = 101

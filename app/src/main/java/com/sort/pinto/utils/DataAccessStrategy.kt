@@ -34,14 +34,22 @@ fun <T, A> performGetOperation(databaseQuery: () -> Flow<T>, networkCall: suspen
         }
     }
 
-fun <T> performFetchOperation(networkCall: suspend () -> Resource<T>, saveCallResult: suspend (T) -> Unit) : LiveData<Resource<T>> =
-
-    liveData(Dispatchers.IO) {
-        emit(Resource.loading())
-        val responseStatus = networkCall.invoke()
-        if (responseStatus.status == Resource.Status.SUCCESS) {
-            saveCallResult(responseStatus.data!!)
-        } else if (responseStatus.status == Resource.Status.ERROR) {
-            emit(Resource.error(responseStatus.message!!))
+fun performDeleteOperation(networkCall: suspend() -> Resource<Unit>, saveCallResult: suspend () -> Unit)  =
+        liveData(Dispatchers.IO){
+            emit(Resource.loading())
+            val response = networkCall.invoke()
+            if(response.status == Resource.Status.SUCCESS)
+                saveCallResult()
+            else if(response.status == Resource.Status.ERROR)
+                emit(Resource.error(response.message.toString(), response.message))
         }
-    }
+
+fun <T> performPatchOperation(networkCall: suspend() -> Resource<T>, saveCallResult: suspend (T) -> Unit)  =
+        liveData(Dispatchers.IO){
+            emit(Resource.loading())
+            val response = networkCall.invoke()
+            if(response.status == Resource.Status.SUCCESS)
+                saveCallResult(response.data!!)
+            else if(response.status == Resource.Status.ERROR)
+                emit(Resource.error(response.message.toString(), response.message))
+        }

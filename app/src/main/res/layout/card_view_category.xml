@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginHorizontal="8dp"
+        app:cardCornerRadius="5dp"
         app:cardBackgroundColor="@color/white">
 
         <LinearLayout
@@ -24,10 +25,23 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                app:setImageUrl="@{category.imageURL}"
+                app:setImageUrl="@{category.imageUrl}"
                 tools:src="@drawable/placeholder"
-                android:scaleType="center"
+                android:scaleType="fitXY"
                 android:contentDescription="@string/category_placeholder" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="@{category.name}"
+                tools:text="Category"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:scrollHorizontally="true"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                />
 
         </LinearLayout>
 

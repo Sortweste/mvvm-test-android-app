@@ -14,4 +14,19 @@
     <string name="profile">Profile</string>
     <string name="category_placeholder">Category Name</string>
     <string name="add_category">Add Category</string>
+    <string name="new_category_image">new category image</string>
+    <string name="upload">Upload</string>
+    <string name="category_name">Category name</string>
+    <string name="add_category_dialog_title">Add new category</string>
+    <string name="company_logo">Company Logo</string>
+    <string name="edit_entity">edit entity</string>
+    <string name="edit_item_text">Edit Product</string>
+    <string name="delete_entity">delete entity</string>
+    <string name="delete_product">Delete Product</string>
+    <string name="delete_Category">Delete Category</string>
+    <string name="edit_Category">Edit Category</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="you_will_not_be_able_to_revert_this_operation">You will not be able to revert this operation</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes_delete_it">Yes, delete it!</string>
 </resources>

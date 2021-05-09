@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/dialog_rounded">
+
+        <EditText
+            android:id="@+id/categoryName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="Category Name"
+            android:hint="@string/category_name"
+            android:layout_marginHorizontal="10dp"
+            android:inputType="text" />
+
+        <ImageView
+            android:id="@+id/uploadedImage"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            tools:src="@drawable/placeholder"
+            android:layout_marginVertical="10dp"
+            android:contentDescription="@string/new_category_image" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <Button
+                android:id="@+id/uploadButton"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:text="@string/upload"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/uploadedImageText"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>

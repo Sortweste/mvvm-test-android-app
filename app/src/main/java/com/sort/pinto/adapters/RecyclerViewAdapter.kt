@@ -9,10 +9,15 @@ import com.sort.pinto.data.Category
 import com.sort.pinto.databinding.CardViewCategoryBinding
 import com.sort.pinto.interfaces.BindAdapter
 import com.sort.pinto.interfaces.RecyclerViewClickListener
+import com.sort.pinto.interfaces.RecyclerViewOnLongClickListener
 
 /*RecyclerViewAdapter class using databinding*/
-class RecyclerViewAdapter(private val listener: RecyclerViewClickListener<Category>): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(),
-    BindAdapter<Category> {
+class RecyclerViewAdapter(
+        private val listener: RecyclerViewClickListener<Category>,
+        private val longClickListener: RecyclerViewOnLongClickListener<Category>
+        ): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(),
+
+        BindAdapter<Category> {
 
     private var items: List<Category> = emptyList()
 
@@ -31,6 +36,7 @@ class RecyclerViewAdapter(private val listener: RecyclerViewClickListener<Catego
             binding.category = item
             binding.executePendingBindings()
             binding.root.setOnClickListener { listener.onCardViewClick(it, item) }
+            binding.root.setOnLongClickListener { longClickListener.onLongCardViewClick(it, item) }
         }
     }
 

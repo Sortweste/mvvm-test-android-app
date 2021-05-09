@@ -11,5 +11,5 @@ data class Category(
     @ColumnInfo(
         name = "image_url",
         defaultValue = "https://mocah.org/uploads/posts/343916-Mountain-Landscape-Scenery-Minimalist-Minimalism-Digital-Art.jpg"
-    ) val imageURL: String
+    ) val imageUrl: String
 )
